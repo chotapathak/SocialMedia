@@ -25,7 +25,7 @@ const GoogleAuth = () => {
       navigate("/", { replace: true });
     });
 
-    console.log(responseGoogle);
+    // console.log(responseGoogle);
   };
   return (
     <div className="flex justify-start items-center flex-col h-screen">
