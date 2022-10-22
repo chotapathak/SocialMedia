@@ -12,19 +12,19 @@ const GoogleAuth = () => {
   const navigate = useNavigate();
   const responseGoogle = (response) => {
     localStorage.setItem("user", JSON.stringify(response.profileObj));
+    // console.log(response, '<= response')
     const { name, googleId, imageUrl } = response.profileObj;
 
     const doc = {
-      id: googleId,
-      type: "user",
+      _id: googleId,
+      _type: "user",
       userName: name,
       image: imageUrl,
     };
 
     client.createIfNotExists(doc).then(() => {
-      navigate("/", { replace: true });
+      navigate("/", { replace: true })
     });
-
     // console.log(responseGoogle);
   };
   return (
@@ -48,10 +48,11 @@ const GoogleAuth = () => {
 
         <div className="shadow-2x1">
           <GoogleOAuthProvider
-            clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
-          >
+            clientId={'${process.env.REACT_APP_GOOGLE_API_TOKEN}'}
+            >
+
             <GoogleLogin
-              clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
+              clientId={'${process.env.REACT_APP_GOOGLE_API_TOKEN}'}
               render={(renderProps) => (
                 <button
                   type="button"
@@ -63,9 +64,7 @@ const GoogleAuth = () => {
                   Sign in with google
                 </button>
               )}
-              onSuccess={(credentialResponse) => {
-                console.log(credentialResponse);
-              }}
+              onSuccess={responseGoogle}
               onFailure={responseGoogle}
               buttonText="SIgn in"
               cookiePolicy={"single_host_origin"}

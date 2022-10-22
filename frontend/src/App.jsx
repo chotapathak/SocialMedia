@@ -1,6 +1,6 @@
 import React from 'react'
 import {Routes, Route, useNavigate} from 'react-router-dom'
-// import Login from './components/Login'
+import Login from './components/Login'
 import Home from './container/Home'
 import GoogleAuth from './components/GoogleAuth'
 
@@ -10,6 +10,7 @@ const App = () => {
       <Routes>
          <Route path='/*' element={<Home/>}/>
         <Route path='/auth' element={<GoogleAuth/>}/>
+          <Route path='/login' element={<Login/>}/>
 
       </Routes>
     </div>
