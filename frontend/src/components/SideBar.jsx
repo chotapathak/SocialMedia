@@ -43,11 +43,11 @@ const SideBar= ({closeToggle, user}) => {
           <RiHomeFill/>
           Home
         </NavLink>
-        <h3 className={'mt-2 px-5 test-base 2x1:test-x1'}>Discover catergories</h3>
+        <h3 className={'mt-2 px-5 test-base 2x1:test-x1'}>Discover categories</h3>
 
         {categories.slice(0, categories.length - 1).map((category) => (
           <NavLink
-              to={`/catergory/${category.name}`}
+              to={`/category/${category.name}`}
                    className={({isActive}) => isActive ? isActiveStyle : isNotActiveStyle}
                    onClick={handleCloseSideBar}
                    key={category.name}

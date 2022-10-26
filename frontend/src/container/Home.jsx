@@ -6,7 +6,7 @@ import { Login } from "../components";
 import { client } from "../client";
 import { userQuery } from "../utils/data";
 import logo from "../assets/logo.png";
-import Pin from "./Pin";
+import Pin from "./Pins";
 import { SideBar, UserProfile } from "../components";
 
 const Home = () => {
@@ -41,7 +41,7 @@ const Home = () => {
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
           <HiMenu
             fontSize={40}
-            className="curser-pointer"
+            className="cursor-pointer"
             onClick={() => {
               setToggleSideBar(true);
             }}
