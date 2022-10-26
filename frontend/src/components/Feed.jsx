@@ -7,7 +7,7 @@ import Spinner from "./Spinner";
 
 const Feed = () => {
     const [pins, setPins] = React.useState();
-    const [loading, setLoading] = React.useState(false);
+    const [loading, setLoading] = React.useState(true);
     const {categoryId} = useParams();
 
     React.useEffect(() => {
