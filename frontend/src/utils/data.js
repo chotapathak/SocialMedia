@@ -136,8 +136,8 @@ export const pinDetailMorePinQuery = (pin) => {
   return query;
 };
 
-export const searchQuery = (searchTerm) => {
-  const query = `*[_type == "pin" && title match '${searchTerm}*' || category match '${searchTerm}*' || about match '${searchTerm}*']{
+export const searchQuery = (searchItem) => {
+  const query = `*[_type == "pin" && title match '${searchItem}*' || category match '${searchItem}*' || about match '${searchItem}*']{
         image{
           asset->{
             url

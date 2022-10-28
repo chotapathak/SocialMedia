@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
-import { GoogleOAuthProvider , GoogleLogin} from "@react-oauth/google";
-export default class Login extends Component {
-  render() {
+// import { GoogleOAuthProvider , GoogleLogin} from "@react-oauth/google";
+import GoogleLogin from 'react-google-login';
+
+const Login = () => {
+    // const responseGoogle = (response) => {
+    //   console.log(response);
+    // };
+
     return (
       <div>
         <button className="shadow-2x1">
-          <GoogleOAuthProvider
-            clientId={'process.env.REACT_APP_GOOGLE_API_TOKEN'}
-          >
+
             <GoogleLogin
-    clientId={'process.env.REACT_APP_GOOGLE_CLIENT_ID'}
+    clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
     buttonText="Log in with Google"
     onSuccess={(responseGoogle) => {
         console.log(responseGoogle)
@@ -19,10 +22,11 @@ export default class Login extends Component {
     }}
     cookiePolicy={'single_host_origin'}
 />
-          </GoogleOAuthProvider>
+
           ;
         </button>
       </div>
     )
-  }
 }
+
+export default Login;

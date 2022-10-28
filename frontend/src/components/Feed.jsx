@@ -1,16 +1,17 @@
-import React from 'react';
+import { React, useState,useEffect} from 'react';
 import {useParams} from "react-router-dom";
 
 import {client} from "../client";
 import {feedQuery, searchQuery} from "../utils/data";
 import Spinner from "./Spinner";
+import MasonryLayout from "./MasonryLayout";
 
 const Feed = () => {
-    const [pins, setPins] = React.useState();
-    const [loading, setLoading] = React.useState(true);
+    const [pins, setPins] = useState();
+    const [loading, setLoading] = useState(false) ;
     const {categoryId} = useParams();
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (categoryId) {
             setLoading(true);
             const query = searchQuery(categoryId);
@@ -36,7 +37,7 @@ const Feed = () => {
     return (
         <div>
             { pins && (
-                    <div>Layout pins</div>
+                <MasonryLayout pins={pins} />
                 )
             }
         </div>
